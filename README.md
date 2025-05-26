@@ -1,1 +1,1 @@
-# Project Pemula
+# Capstone Project | Tanam AI
