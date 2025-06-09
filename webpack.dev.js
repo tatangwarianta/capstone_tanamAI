@@ -16,8 +16,10 @@ module.exports = merge(common, {
     ],
   },
   devServer: {
-    static: path.resolve(__dirname, 'src'),
+    static: path.resolve(__dirname, 'dist'),
     port: 9000,
+    open: true,
+    historyApiFallback: true,
     client: {
       overlay: {
         errors: true,

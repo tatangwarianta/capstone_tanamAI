@@ -1,33 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tanam AI</title>
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- CSS lokal -->
-    <link rel="stylesheet" href="./styles/main.css" />
-    </head>
-    <body>
-    <!-- Header semantik -->
-    <header>
-        <h1>Dicoding Story</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#007bff" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Dicoding Story</title>
 
-    <!-- Root container untuk View-Transition -->
-    <div id="app" view-transition-name="root"></div>
+  <!-- Leaflet CSS (external tetap bisa) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+</head>
+<body>
+  <a href="#story-container" class="skip-link">Skip to main content</a>
 
-    <!-- Konten utama SPA -->
-    <main id="main-content" class="fade-in"></main>
+  <!-- Header -->
+  <header style="display: flex; justify-content: space-between; align-items: center; padding: 16px;">
+    <h1 style="margin: 0;">Tanam AI</h1>
 
-    <!-- Footer semantik -->
-    <footer>
-        <p>&copy; 2025 Dicoding Story. All rights reserved.</p>
-    </footer>
+    <button class="navbar-toggler" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <!-- Script JS -->
-    <script type="module" src="./scripts/index.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    </body>
+    <nav class="navbar-container">
+      <a href="#/" class="navbar-home">Home</a>
+      <a href="#/upload" class="navbar-upload">Deteksi</a>
+      <a href="#/stories" class="navbar-upload">Hasil</a> 
+      <a href="#/logout" class="navbar-logout" id="logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Root container -->
+  <div id="app" view-transition-name="root"></div>
+  <main id="main-content" class="fade-in"></main>
+
+  <footer>
+    <p>&copy; Tanam AI. Copyright 2025.</p>
+  </footer>
+
+  <!-- Leaflet JS tetap di-load manual karena bukan bagian dari bundling -->
+  <script>
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarContainer = document.querySelector('.navbar-container');
+
+    if (navbarToggler && navbarContainer) {
+      navbarToggler.addEventListener('click', () => {
+        navbarContainer.classList.toggle('is-open');
+      });
+
+      navbarContainer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navbarContainer.classList.remove('is-open');
+        });
+      });
+    }
+  </script>
+</body>
 </html>
