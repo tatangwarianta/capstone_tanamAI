@@ -995,3 +995,10 @@ a:hover {
   font-size: 14px;
   color: #333;
 }
+#login-email,
+#login-password, 
+#register-name,
+#register-email,
+#register-password{
+  color: black !important;
+}

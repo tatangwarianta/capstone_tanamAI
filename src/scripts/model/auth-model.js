@@ -24,7 +24,7 @@ const AuthModel = {
         }
 
         // ✅ Proses login online
-        const response = await fetch('https://story-api.dicoding.dev/v1/login', {
+        const response = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -46,7 +46,7 @@ const AuthModel = {
     },
 
     async register(name, email, password) {
-        const response = await fetch('https://story-api.dicoding.dev/v1/register', {
+        const response = await fetch('http://localhost:3000/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
