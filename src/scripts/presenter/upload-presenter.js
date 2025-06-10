@@ -12,8 +12,6 @@ const UploadPresenter = {
             UploadView.navigateTo('#/');
             return;
         }
-
-        let selectedLatLng = null;
         let photoBlob = null;
         let stream = null;
 
@@ -63,44 +61,44 @@ const UploadPresenter = {
         });
 
         UploadView.bindFormSubmit(async (e) => {
-            e.preventDefault();
-            UploadView.setFormDisabled(true);
+        e.preventDefault();
+        UploadView.setFormDisabled(true);
 
-            const description = UploadView.getDescription();
-            const currentToken = AuthModel.getToken(); 
+        const predictionType = UploadView.getSelectedPredictionType(); // ✅ Ambil nilai radio
+        const currentToken = AuthModel.getToken();
 
-            if (!photoBlob) {
-                UploadView.showAlert('Harap pilih gambar atau ambil foto.');
-                UploadView.setFormDisabled(false);
-                return;
+        if (!photoBlob) {
+            UploadView.showAlert('Harap pilih gambar atau ambil foto.');
+            UploadView.setFormDisabled(false);
+            return;
+        }
+
+        if (!currentToken) {
+            UploadView.showAlert('Token tidak ditemukan, silakan login ulang.');
+            UploadView.navigateTo('#/');
+            UploadView.setFormDisabled(false);
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('photo', photoBlob);
+        formData.append('plantType', predictionType); // ✅ Tambahkan ke FormData
+
+        try {
+            const response = await Api.uploadStory(formData, currentToken);
+            if (!response.error) {
+            UploadView.showAlert('Cerita berhasil diupload!');
+            UploadView.navigateTo('#/stories');
+            } else {
+            UploadView.showAlert(response.message || 'Upload gagal.');
             }
-
-            if (!currentToken) {
-                UploadView.showAlert('Token tidak ditemukan, silakan login ulang.');
-                UploadView.navigateTo('#/');
-                UploadView.setFormDisabled(false);
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append('description', description);
-            formData.append('photo', photoBlob);
-
-            try {
-                const response = await Api.uploadStory(formData, currentToken);
-                if (!response.error) {
-                    UploadView.showAlert('Cerita berhasil diupload!');
-                    UploadView.navigateTo('#/stories');
-                } else {
-                    UploadView.showAlert(response.message || 'Upload gagal.');
-                }
-            } catch (err) {
-                UploadView.showAlert('Terjadi kesalahan saat upload.');
-                console.error(err);
-            } finally {
-                UploadView.setFormDisabled(false);
-                cleanupCameraStream();
-            }
+        } catch (err) {
+            UploadView.showAlert('Terjadi kesalahan saat upload.');
+            console.error(err);
+        } finally {
+            UploadView.setFormDisabled(false);
+            cleanupCameraStream();
+        }
         });
     },
 };

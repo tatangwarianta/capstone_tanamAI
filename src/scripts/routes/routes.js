@@ -14,7 +14,7 @@ const routes = {
   '/home': HomeView,
   '/upload': UploadView,
   '/stories': StoriesView,
-  '/stories/:id': async (container) => { // ✅ Ganti dari view ke presenter
+  '/stories/:id': async (container) => {
     await StoryItemPresenter.init(container);
   },
   '/offline': OfflineView,
