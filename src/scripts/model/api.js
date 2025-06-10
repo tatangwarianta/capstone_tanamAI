@@ -27,7 +27,7 @@ const Api = {
   },
 
   async uploadStory(formData, token) {
-    const res = await fetch(`${CONFIG.BASE_URL}/stories`, {
+    const res = await fetch(`${CONFIG.BASE_URL}/poststories`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
