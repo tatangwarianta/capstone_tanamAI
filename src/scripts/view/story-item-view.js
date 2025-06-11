@@ -13,7 +13,7 @@ const StoryItem = {
         <h3 class="prediction-list-title">Kemungkinan Hama / Penyakit:</h3>
 
         ${story.top3.map(prediction => {
-          const isDeskripsiOnly = prediction.type === 'deskripsi';
+          const isDeskripsiOnly = prediction.type === 'Deskripsi';
 
           if (isDeskripsiOnly) {
             return `
