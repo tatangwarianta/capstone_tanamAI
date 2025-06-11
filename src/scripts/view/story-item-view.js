@@ -23,7 +23,7 @@ const StoryItem = {
                     ${prediction.label}
                     <span class="badge bg-success ms-2">(Serangga Baik)</span>
                   </h4>
-                  <span class="confidence-score">${(prediction.probability * 100).toFixed(0)}% Keyakinan</span>
+                  <span class="confidence-score">${(prediction.probability * 100).toFixed(0)}% Kemungkinan</span>
                 </div>
 
                 <div class="progress-bar-container">
@@ -42,7 +42,7 @@ const StoryItem = {
             <div class="prediction-detail-item">
               <div class="prediction-header">
                 <h4>${prediction.label}</h4>
-                <span class="confidence-score">${(prediction.probability * 100).toFixed(0)}% Keyakinan</span>
+                <span class="confidence-score">${(prediction.probability * 100).toFixed(0)}% Kemungkinan</span>
               </div>
 
               <div class="progress-bar-container">
