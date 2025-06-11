@@ -1,6 +1,6 @@
 {
-  "name": "Story PWA",
-  "short_name": "Story",
+  "name": "Tanam AI",
+  "short_name": "T.AI",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
