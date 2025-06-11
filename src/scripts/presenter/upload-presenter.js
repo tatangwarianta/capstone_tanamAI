@@ -31,7 +31,9 @@ const UploadPresenter = {
 
         UploadView.bindStartCamera(async () => {
             try {
-                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                stream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: 'environment' } // kamera belakang
+                });
                 UploadView.startCameraStream(stream);
             } catch (err) {
                 UploadView.showAlert('Tidak dapat mengakses kamera: ' + err.message);

@@ -8,7 +8,6 @@ import OfflineView from '../view/offline-view.js';
 import StoryItemPresenter from '../presenter/story-item-presenter.js'; // ✅ Import presenter
 
 const routes = {
-  '/': LoginView,
   '/login': LoginView,
   '/register': RegisterView,
   '/home': HomeView,

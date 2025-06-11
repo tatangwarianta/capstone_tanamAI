@@ -12,7 +12,6 @@ import StoryItemPresenter from '../presenter/story-item-presenter.js'; // ✅ ta
 import AuthModel from '../model/auth-model.js';
 
 const presenterMap = {
-  '/': LoginPresenter,
   '/login': LoginPresenter,
   '/register': RegisterPresenter,
   '/home': HomePresenter,

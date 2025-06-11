@@ -17,7 +17,7 @@ module.exports = merge(common, {
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
-    port: 9000,
+    port: 5000,
     open: true,
     historyApiFallback: true,
     client: {

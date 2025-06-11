@@ -20,7 +20,7 @@ const Api = {
   },
 
   async getStories(token) {
-    const res = await fetch(`${CONFIG.BASE_URL}/stories`, {
+    const res = await fetch(`${CONFIG.BASE_URL}/getmystories`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return res.json();

@@ -103,11 +103,17 @@ header {
   text-align: left;
   z-index: 99;
 }
-header h1 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  text-align: left;
+
+.header-logo-link {
+  display: flex;
+  align-items: center;
 }
+
+.header-logo {
+  height: 65px;
+  width: auto;  
+}
+
 header p {
   font-size: 1rem;
   color: #948979;
@@ -129,11 +135,6 @@ header .navbar-container a {
 }
 
 header .navbar-container a:hover {
-  background-color: whitesmoke;
-  color: #198b69;
-}
-
-header .navbar-container #logout {
   background-color: whitesmoke;
   color: #198b69;
 }
@@ -484,6 +485,10 @@ button {
   text-align: center;
 }
 
+.story-list p {
+  color: red;
+}
+
 .story-card {
   display: flex;
   flex-direction: row;
@@ -505,18 +510,21 @@ button {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-.story-card .story-image {
-  width: 180px;
+.story-card img.story-image {
+  margin-left: 10px;
+  width: 100%;
   max-width: 150px;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
+  height: auto;    
+  max-height: 150px;
+  object-fit: cover; 
+  border-radius: 10px;
+
 }
 
 .story-card-detail {
   display: flex;
   flex-direction: column;
-  background-color: #198b69; 
+  background-color: #198b69;
   padding: 24px; 
   border-radius: 20px; 
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
@@ -716,6 +724,29 @@ button {
   font-weight: 500;
 }
 
+.disease-info .solution-block {
+  margin-top: 1rem;
+}
+
+.disease-info ul {
+  list-style-type: disc;
+  padding-left: 20px; 
+  margin-top: 0.5rem;
+}
+
+.disease-info ul li {
+  margin-bottom: 0.5rem; 
+}
+
+.disease-info ul.product-list {
+  list-style-type: none; 
+  padding-left: 0;  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
 .confidence-score {
   color: #198b69;
   font-weight: 700;
@@ -765,6 +796,29 @@ a.product-link:hover {
 
 a.product-link i {
   margin-left: 8px;
+  font-size: 0.8em;
+}
+
+a.btn-product,
+a.btn-product:visited {
+  display: inline-block;
+  background-color: #198b69;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a.btn-product:hover {
+  background-color: #146b50;
+  transform: translateY(-1px);
+}
+
+a.btn-product i {
+  margin-left: 6px;
   font-size: 0.8em;
 }
 
@@ -880,7 +934,6 @@ a:hover {
   a.btn-back,
   a.btn-back:visited {
     display: inline-block;
-    background-color: #6c757d;
     color: #ffffff;
     padding: 12px 24px;
     border-radius: 8px;
@@ -892,7 +945,6 @@ a:hover {
   }
 
   a.btn-back:hover {
-    background-color: #5a6268;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     transform: translateY(-2px);
   }
@@ -918,6 +970,11 @@ a:hover {
 
   .story-container {
     gap: 1rem;
+  }
+
+  .story-card img.story-image {
+    max-width: 80px;
+    max-height: 80px;
   }
   .story-content h3 { font-size: 1.1rem; }
   .story-content p  { font-size: 0.95rem; }
@@ -1128,6 +1185,25 @@ a:hover {
   .story-image {
     height: 180px;
   }
+
+  .predictions-list {
+    gap: 8px;
+  }
+
+  .prediction-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .confidence-score {
+    align-self: flex-end;
+    font-size: 0.85rem;
+  }
+
+  .progress-bar-container {
+    height: 8px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1166,10 +1242,28 @@ a:hover {
   .story-image {
     height: 150px;
   }
+  
+  .predictions-list {
+    gap: 6px;
+  }
+
+  .prediction-details {
+    font-size: 0.85rem;
+  }
+
+  .confidence-score {
+    font-size: 0.75rem;
+  }
+
+  .prediction-item {
+    font-size: 0.85rem;
+  }
+
+  .progress-bar-container {
+    height: 6px;
+  }
 }
 
-
-/* --- Custom styles for Hasil Deteksi --- */
 .story-container {
   padding: 16px;
 }
