@@ -6,10 +6,6 @@ const UploadView = {
           <h2 id="upload-heading">Upload Foto Tanaman</h2>
           <form id="upload-form" class="form-container">
 
-            <label for="photo-file" class="custom-file-label">Unggah Gambar dari File</label>
-            <input type="file" id="photo-file" accept="image/*" class="custom-file-input"/>
-            <div id="file-preview" class="file-preview"></div>
-
             <label for="photo-camera">Ambil Gambar dari Kamera</label>
             <video id="video" autoplay playsinline></video>
             <div class="camera-controls">
@@ -17,6 +13,10 @@ const UploadView = {
               <button type="button" id="stop-camera" style="display:none;">Matikan Kamera</button>
               <button type="button" id="take-photo">Ambil Foto</button>
             </div>
+            <label for="photo-file" class="custom-file-label">Unggah Gambar dari File</label>
+            
+            <input type="file" id="photo-file" accept="image/*" class="custom-file-input"/>
+            <div id="file-preview" class="file-preview"></div>
             <canvas id="canvas" style="display: none;"></canvas>
 
             <fieldset class="prediction-options">

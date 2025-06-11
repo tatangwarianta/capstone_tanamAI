@@ -1,14 +1,19 @@
 const HomeView = {
   async render(container) {
     container.innerHTML = `
-      <section class="home-container" aria-labelledby="home-heading">
-        <h2 id="home-heading">Home</h2>
-        <h3 id="welcome-message"> Selamat datang di Tanam AI, disini kami akan membantu anda dalam mendeteksi penyakit apa yang ada di tanaman anda</h3>
-        <nav>
-          <a id="btn-deteksi" href="#/upload">Deteksi!</a>
-          <a id="btn-result" href="#/stories">Hasil</a>
-        </nav>
-      </section>
+      <div class="jumbotron">
+        <img src="public/images/jumbotron.jpg" alt="Banner Tanam AI" class="jumbotron-image" />
+        <div class="jumbotron-text">
+          <h2 id="home-heading">Selamat Datang di Tanam AI</h2>
+          <h3 id="welcome-message">
+            Kami membantu Anda mendeteksi penyakit pada tanaman secara cepat dan akurat
+          </h3>
+          <div class="jumbotron-buttons">
+            <a id="btn-deteksi" href="#/upload">Deteksi!</a>
+            <a id="btn-result" href="#/stories">Hasil</a>
+          </div>
+        </div>
+      </div>
     `;
   },
 

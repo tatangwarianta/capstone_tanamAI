@@ -1,5 +1,5 @@
 let currentHash = '';
-const CACHE_NAME = 'story-app-shell-v8';
+const CACHE_NAME = 'story-app-shell-v9';
 const urlsToCache = [
   '/',
   '/index.html',

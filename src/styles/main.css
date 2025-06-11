@@ -23,21 +23,95 @@
 
 /* Gaya tombol pengganti */
 .custom-file-label {
-  display: inline-block;
+  display: block;              
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
   padding: 10px 16px;
   background-color: whitesmoke;  
   color: #198b69;
   font-size: 16px;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-bottom: 12px;
+  text-align: center;
 }
+
+h2#home-heading {
+  color: whitesmoke;
+}
+
+h3#welcome-message {
+  color: whitesmoke;
+}
+
+.jumbotron {
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.jumbotron-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.5);
+}
+
+
+.jumbotron-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  text-align: center;
+  z-index: 10;
+  padding: 1rem;
+}
+
+.jumbotron-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.jumbotron-text h3 {
+  font-size: 1.25rem;
+  font-weight: normal;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.jumbotron-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.jumbotron-buttons a {
+  padding: 10px 24px;
+  background-color: #198b69;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.jumbotron-buttons a:hover {
+  background-color: #146b50;
+}
+
 
 .custom-file-label:hover {
   background-color: whitesmoke;
 }
-
 
 button {
   color: #198b69;
