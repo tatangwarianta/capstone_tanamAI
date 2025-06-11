@@ -12,45 +12,74 @@ const StoryItem = {
       <div class="detail-predictions-list">
         <h3 class="prediction-list-title">Kemungkinan Hama / Penyakit:</h3>
 
-        ${story.top3.map(prediction => `
-          <div class="prediction-detail-item">
-            <div class="prediction-header">
-              <h4>${prediction.label}</h4>
-              <span class="confidence-score">${(prediction.probability * 100).toFixed(0)}% Keyakinan</span>
-            </div>
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: ${(prediction.probability * 100)}%;"></div>
-            </div>
-            <div class="disease-info">
-              <p><strong>Gejala:</strong> ${prediction.gejala || '-'}</p>
-              
-              <div class="solution-block">
-                <p><strong>Solusi Organik:</strong></p>
-                <ul>${(prediction.solusi?.organik || []).map(s => `<li>${s}</li>`).join('')}</ul>
-              </div>
+        ${story.top3.map(prediction => {
+          const isDeskripsiOnly = prediction.type === 'deskripsi';
 
-              <div class="solution-block">
-                <p><strong>Solusi Anorganik:</strong></p>
-                <p>${prediction.solusi?.anorganik || '-'}</p>
-              </div>
-
-              ${prediction.produk?.length ? `
-                <div class="solution-block">
-                  <p><strong>Produk:</strong></p>
-                  <ul class="product-list">
-                    ${prediction.produk.map(p => `
-                      <li>
-                        <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="btn-product">
-                          ${p.platform} (${p.jenis || '-'}) <i class="fas fa-external-link-alt"></i>
-                        </a>
-                      </li>
-                    `).join('')}
-                  </ul>
+          if (isDeskripsiOnly) {
+            return `
+              <div class="prediction-detail-item">
+                <div class="prediction-header">
+                  <h4>
+                    ${prediction.label}
+                    <span class="badge bg-success ms-2">(Serangga Baik)</span>
+                  </h4>
+                  <span class="confidence-score">${(prediction.probability * 100).toFixed(0)}% Keyakinan</span>
                 </div>
-              ` : ''}
+
+                <div class="progress-bar-container">
+                  <div class="progress-bar" style="width: ${(prediction.probability * 100)}%;"></div>
+                </div>
+
+                <div class="disease-info">
+                  <p><strong>Deskripsi:</strong> ${prediction.gejala || '-'}</p>
+                </div>
+              </div>
+            `;
+          }
+
+          // Jika bukan deskripsi, tampilkan lengkap
+          return `
+            <div class="prediction-detail-item">
+              <div class="prediction-header">
+                <h4>${prediction.label}</h4>
+                <span class="confidence-score">${(prediction.probability * 100).toFixed(0)}% Keyakinan</span>
+              </div>
+
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: ${(prediction.probability * 100)}%;"></div>
+              </div>
+
+              <div class="disease-info">
+                <p><strong>${prediction.type || "Deskripsi"}:</strong> ${prediction.gejala || '-'}</p>
+
+                <div class="solution-block">
+                  <p><strong>Solusi Organik:</strong></p>
+                  <ul>${(prediction.solusi?.organik || []).map(s => `<li>${s}</li>`).join('')}</ul>
+                </div>
+
+                <div class="solution-block">
+                  <p><strong>Solusi Anorganik:</strong></p>
+                  <p>${prediction.solusi?.anorganik || '-'}</p>
+                </div>
+
+                ${prediction.produk?.length ? `
+                  <div class="solution-block">
+                    <p><strong>Produk:</strong></p>
+                    <ul class="product-list">
+                      ${prediction.produk.map(p => `
+                        <li>
+                          <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="btn-product">
+                            ${p.platform}${p.jenis ? ` (${p.jenis})` : ''} <i class="fas fa-external-link-alt"></i>
+                          </a>
+                        </li>
+                      `).join('')}
+                    </ul>
+                  </div>
+                ` : ''}
+              </div>
             </div>
-          </div>
-        `).join('')}
+          `;
+        }).join('')}
       </div>
 
       <div class="back-button-container" style="margin-top: 30px; text-align: center;">
