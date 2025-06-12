@@ -24,9 +24,10 @@ Repositori ini berisi kode sumber dan dokumentasi untuk TanamAI, sebuah aplikasi
 
 ## Latar Belakang
 
-Produktivitas pertanian di Indonesia menghadapi tantangan serius dari serangan hama dan penyakit yang seringkali terlambat dideteksi. Keterlambatan ini menyebabkan penurunan hasil panen yang signifikan, seperti penurunan produksi beras hingga 2,05% [cite: 93] dan potensi kehilangan hasil jagung hingga 40% [cite: 94], yang sebagian besar disebabkan oleh proses deteksi manual yang subjektif dan tidak konsisten. TanamAI dikembangkan untuk menjembatani kesenjangan ini dengan menyediakan solusi teknologi yang cepat, akurat, dan mudah diakses.
+TanamAI merupakan solusi berbasis teknologi yang dikembangkan untuk membantu petani Indonesia dalam mendeteksi penyakit dan hama tanaman pangan seperti padi, jagung, dan singkong. Berdasarkan data dari BPS, penurunan produksi padi sebesar 645,09 ribu ton pada 2023 dan kerugian hasil panen jagung hingga 40% menjadi indikator nyata bahwa gangguan penyakit dan hama berdampak besar terhadap ketahanan pangan nasional. Untuk itu, TanamAI hadir sebagai aplikasi berbasis web yang memanfaatkan teknologi machine learning dan pengenalan citra untuk memberikan deteksi dini dan akurat.
 
-Dengan memanfaatkan model *machine learning* berbasis *Deep Learning* (arsitektur MobileNetV2) [cite: 157, 278], aplikasi ini memungkinkan petani untuk mengunggah foto daun tanaman melalui *smartphone*  dan secara instan mendapatkan diagnosis kemungkinan penyakit atau hama, lengkap dengan rekomendasi penanggulangan secara organik dan anorganik. Proyek ini bertujuan untuk memberdayakan petani, meningkatkan efisiensi, dan mendukung ketahanan pangan nasional.
+Dalam pelaksanaannya, tim Machine Learning mengembangkan empat model klasifikasi citra berbasis MobileNetV2 dengan TensorFlow dan Keras, serta melakukan proses fine-tuning, augmentasi data, dan evaluasi akurasi model. Tim Front-End dan Back-End mengembangkan antarmuka web responsif dan RESTful API menggunakan HTML, CSS, JavaScript, dan Hapi.js, yang memungkinkan pengguna melakukan deteksi langsung melalui kamera atau unggahan gambar. Seluruh proses dikelola menggunakan GitHub dan hasil akhir di-deploy melalui GitHub Pages dan server API.
+
 
 ## Fitur Utama
 
