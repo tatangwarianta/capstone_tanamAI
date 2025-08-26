@@ -1,0 +1,4 @@
+APP_URL=https://my-story-app.vercel.app
+MAP_SERVICE_API_KEY=NONE
+
+web = https://rayyanhermanto.github.io/
